@@ -1,0 +1,18 @@
+#输入为文件名，是一个字符串。
+#输出为list格式的图结果，如graph = [[1],[2,20],[3,5],[2,4],[2],[6],[7,19],[8],[9,10],[13],[11,12],[13],[13],[14],[15,16],[13],[17,18],[13],[13],[1],[]]
+def readGraph(fileName):
+    graph = []
+    with open(fileName,'r') as f:
+	f.readline()
+        while 1:
+            line = f.readline()
+            if not line:
+                break
+            line = line.strip('[]\n')
+            a = list(line.split(","))
+            a = [int(x) for x in a]
+            if a[0] == -1:
+                a = []
+            graph.append(a)
+    
+    return graph
